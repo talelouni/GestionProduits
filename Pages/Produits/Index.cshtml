@@ -1,0 +1,40 @@
+@page
+@model GestionProduits.Pages.Produits.IndexModel
+@{
+    ViewData["Title"] = "Produits";
+}
+
+<h1>Liste des produits</h1>
+<p><a asp-page="Create" class="btn btn-primary">Nouveau produit</a></p>
+<form method="get" class="row g-2 mb-3">
+    <div class="col-auto">
+        <input asp-for="Recherche" class="form-control" placeholder="Rechercher un produit..." />
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-outline-primary">Rechercher</button>
+        <a asp-page="Index" class="btn btn-outline-secondary">Réinitialiser</a>
+    </div>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr><th>Nom</th><th>Prix</th><th>Stock</th><th>Catégorie</th><th></th></tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.Produits)
+        {
+            <tr>
+                <td>@p.Nom</td>
+                <td>@p.Prix.ToString("C")</td>
+                <td>@p.Stock</td>
+                <td>@p.Categorie?.Nom</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@p.Id">Modifier</a> |
+                    <a asp-page="Delete" asp-route-id="@p.Id">Supprimer</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p><strong>Stock total :</strong> @Model.StockTotal</p>
+<p><strong>Prix moyen :</strong> @Model.PrixMoyen.ToString("C")</p>

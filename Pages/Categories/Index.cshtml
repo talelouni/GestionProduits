@@ -1,0 +1,22 @@
+@page
+@model GestionProduits.Pages.Categories.IndexModel
+@{ ViewData["Title"] = "Catégories"; }
+
+<h1>Catégories</h1>
+<p><a asp-page="Create" class="btn btn-primary">Nouvelle catégorie</a></p>
+
+<table class="table table-striped">
+    <thead><tr><th>Nom</th><th></th></tr></thead>
+    <tbody>
+    @foreach (var c in Model.Categories)
+    {
+        <tr>
+            <td>@c.Nom</td>
+            <td>
+                <a asp-page="Edit" asp-route-id="@c.Id">Modifier</a> |
+                <a asp-page="Delete" asp-route-id="@c.Id">Supprimer</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

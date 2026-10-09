@@ -1,0 +1,38 @@
+@page
+@model GestionProduits.Pages.Produits.CreateModel
+@{ ViewData["Title"] = "Nouveau produit"; }
+
+<h1>Nouveau produit</h1>
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Produit.Nom" class="form-label"></label>
+        <input asp-for="Produit.Nom" class="form-control" />
+        <span asp-validation-for="Produit.Nom" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Produit.Prix" class="form-label"></label>
+        <input asp-for="Produit.Prix" class="form-control" />
+        <span asp-validation-for="Produit.Prix" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+    <label asp-for="Produit.Stock" class="form-label"></label>
+    <input asp-for="Produit.Stock" class="form-control" />
+    <span asp-validation-for="Produit.Stock" class="text-danger"></span>
+</div>
+
+    <div class="mb-3">
+        <label asp-for="Produit.CategorieId" class="form-label"></label>
+        <select asp-for="Produit.CategorieId" asp-items="Model.Categories" class="form-select"></select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Enregistrer</button>
+    <a asp-page="Index" class="btn btn-secondary">Annuler</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

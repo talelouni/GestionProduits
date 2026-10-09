@@ -1,0 +1,15 @@
+@page "{id:int}"
+@model GestionProduits.Pages.Categories.DeleteModel
+@{ ViewData["Title"] = "Supprimer la catégorie"; }
+
+<h1>Supprimer la catégorie « @Model.Categorie.Nom » ?</h1>
+
+@if (Model.Erreur != null)
+{
+    <div class="alert alert-danger">@Model.Erreur</div>
+}
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Confirmer la suppression</button>
+    <a asp-page="Index" class="btn btn-secondary">Annuler</a>
+</form>

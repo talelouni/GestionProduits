@@ -1,0 +1,19 @@
+﻿@page
+@model GestionProduits.Pages.Categories.CreateModel
+@{ ViewData["Title"] = "Nouvelle catégorie"; }
+
+<h1>Nouvelle catégorie</h1>
+
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="Categorie.Nom" class="form-label"></label>
+        <input asp-for="Categorie.Nom" class="form-control" />
+        <span asp-validation-for="Categorie.Nom" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-success">Enregistrer</button>
+    <a asp-page="Index" class="btn btn-secondary">Annuler</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

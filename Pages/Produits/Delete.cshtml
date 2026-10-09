@@ -1,0 +1,19 @@
+@page "{id:int}"
+@model GestionProduits.Pages.Produits.DeleteModel
+@{ ViewData["Title"] = "Supprimer"; }
+
+<h1>Supprimer ce produit ?</h1>
+
+<dl class="row">
+    <dt class="col-sm-2">Nom</dt>
+    <dd class="col-sm-10">@Model.Produit.Nom</dd>
+    <dt class="col-sm-2">Prix</dt>
+    <dd class="col-sm-10">@Model.Produit.Prix.ToString("C")</dd>
+    <dt class="col-sm-2">Catégorie</dt>
+    <dd class="col-sm-10">@Model.Produit.Categorie?.Nom</dd>
+</dl>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Confirmer la suppression</button>
+    <a asp-page="Index" class="btn btn-secondary">Annuler</a>
+</form>
